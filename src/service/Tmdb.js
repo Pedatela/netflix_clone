@@ -68,5 +68,9 @@ export default {
         }
     },
 
+    async getMovieInfo(movieId, type) {
+        return api.get(`/${type}/${movieId}`, { params: { language: 'pt-BR', api_key: API_KEY } })
+    },
+
 
 };

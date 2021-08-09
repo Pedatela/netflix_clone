@@ -9,6 +9,7 @@ import TmdbService from './service/Tmdb'
 // Components
 import MovieRow from './components/MovieRow';
 import FeaturedMovie from './components/FeaturedMovie';
+import Tmdb from './service/Tmdb';
 
 
 function App() {
@@ -30,11 +31,13 @@ function App() {
       await TmdbService.getRomanceMovie(),
       await TmdbService.getDocumentaryMovie(),
     ]
-    setMovies(list)
     const originals = list.filter(movie => movie.slug === 'originals');
     const randomChosen = Math.floor(Math.random() * (originals[0].items.data.results.length - 1))
     const chosen = originals[0].items.data.results[randomChosen]
-    setFeaturedData(chosen)
+    const { data } = await Tmdb.getMovieInfo(chosen.id, 'tv')
+
+    setMovies(list)
+    setFeaturedData(data)
   }
 
 
