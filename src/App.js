@@ -68,9 +68,9 @@ function App() {
             </section>
 
             <footer className="footer">
-                Feito <span role="img" aria-label="coração">❤️</span> em Live <a href="https://www.youtube.com/watch?v=tBweoUiMsDg" target="_blank">Youtube</a> para estudo de react. <br />
+                Feito <span role="img" aria-label="coração">❤️</span> em Live <a href="https://www.youtube.com/watch?v=tBweoUiMsDg">Youtube</a> para estudo de react. <br />
                 Todos os direitos das imagens são da Netflix.<br />
-                Dados Extraidos de <a href="https://www.themoviedb.org/" target="_blank">The Movie DB (API)</a>
+                Dados Extraidos de <a href="https://www.themoviedb.org/">The Movie DB (API)</a>
             </footer>
 
         </div>);
