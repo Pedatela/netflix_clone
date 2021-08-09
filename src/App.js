@@ -8,9 +8,12 @@ import TmdbService from './service/Tmdb'
 
 // Components
 import MovieRow from './components/MovieRow';
+import FeaturedMovie from './components/FeaturedMovie';
+
 
 function App() {
-  let [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
+  const [featuredData, setFeaturedData] = useState(null);
 
   useEffect(() => {
     init()
@@ -27,16 +30,25 @@ function App() {
       await TmdbService.getRomanceMovie(),
       await TmdbService.getDocumentaryMovie(),
     ]
-    console.log(list)
     setMovies(list)
+    const originals = list.filter(movie => movie.slug === 'originals');
+    const randomChosen = Math.floor(Math.random() * (originals[0].items.data.results.length - 1))
+    const chosen = originals[0].items.data.results[randomChosen]
+    setFeaturedData(chosen)
   }
 
 
   return (
-    <div>
-      {movies.map((movie, index) => (
-        <MovieRow key={index} title={movie.title} items={movie.items} />
-      ))}
+    <div className="page">
+      {featuredData &&
+        <FeaturedMovie item={featuredData} />
+      }
+
+      <section className="lists">
+        {movies.map((movie, index) => (
+          <MovieRow key={index} title={movie.title} items={movie.items} />
+        ))}
+      </section>
     </div>);
 }
 
