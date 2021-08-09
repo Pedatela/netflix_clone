@@ -21,7 +21,8 @@ export const Horizontal = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 30px;
+    padding: 70px 0 150px 30px ;
+
 `;
 
 export const Name = styled.div`
