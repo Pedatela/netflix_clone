@@ -19,12 +19,14 @@ export const List = styled.div`
 
 export const Item = styled.div`
     display: inline-block;
+    cursor: pointer;
     width: 150px;
 `;
 
 export const CoverImage = styled.img`
     width: 100%;
     transform: scale(0.9);
+    transition: all ease 0.2s;
 
     &:hover {
         transform: scale(1);
