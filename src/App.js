@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+// Global CSS
+import './App.css'
+
 // Service
 import TmdbService from './service/Tmdb'
 
-// import { Container } from './styles';
+// Components
+import MovieRow from './components/MovieRow';
 
 function App() {
   let [movies, setMovies] = useState([]);
@@ -14,14 +18,14 @@ function App() {
 
   const init = async () => {
     const list = [
-      await TmdbService.getDocumentaryMovie(),
-      await TmdbService.getRomanceMovie(),
+      await TmdbService.getOriginals(),
+      await TmdbService.getTrending(),
+      await TmdbService.getTopRated(),
       await TmdbService.getActionMovie(),
       await TmdbService.getComedyMovie(),
       await TmdbService.getHorrorMovie(),
-      await TmdbService.getOriginals(),
-      await TmdbService.getTrending(),
-      await TmdbService.getTopRated()
+      await TmdbService.getRomanceMovie(),
+      await TmdbService.getDocumentaryMovie(),
     ]
     console.log(list)
     setMovies(list)
@@ -31,7 +35,7 @@ function App() {
   return (
     <div>
       {movies.map((movie, index) => (
-        <div>{movie.title} </div>
+        <MovieRow key={index} title={movie.title} items={movie.items} />
       ))}
     </div>);
 }
