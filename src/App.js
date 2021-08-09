@@ -67,11 +67,17 @@ function App() {
                 ))}
             </section>
 
-            <footer className="footer">
+            <footer>
                 Feito <span role="img" aria-label="coração">❤️</span> em Live <a href="https://www.youtube.com/watch?v=tBweoUiMsDg">Youtube</a> para estudo de react. <br />
                 Todos os direitos das imagens são da Netflix.<br />
                 Dados Extraidos de <a href="https://www.themoviedb.org/">The Movie DB (API)</a>
             </footer>
+
+            {movies.length <= 0 &&
+                <div className="loading">
+                    <img src="https://cdn.lowgif.com/small/0534e2a412eeb281-the-counterintuitive-tech-behind-netflix-s-worldwide.gif" alt="loading"></img>
+                </div>
+            }
 
         </div>);
 }

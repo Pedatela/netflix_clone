@@ -4,6 +4,11 @@ import { Container, Vertical, Horizontal, Name, Info, Points, Year, Season, Desc
 
 function FeaturedMovie({ item }) {
     const firstDate = new Date(item.first_air_date)
+    let description = item.overview
+
+    if (description.length > 200) {
+        description = description.substring(0, 200) + '...'
+    }
 
     return (
         <Container img={item.backdrop_path}>
@@ -16,7 +21,7 @@ function FeaturedMovie({ item }) {
                         <Season>{item.number_of_seasons} temporada{item.number_of_seasons !== 1 ? 's' : ''}</Season>
                     </Info>
                     <Description>
-                        {item.overview}
+                        {description}
                     </Description>
                     <Buttons>
                         <WatchButton href={`/watch${item.id}`}> ▶ Assistir</WatchButton>
