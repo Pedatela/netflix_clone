@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import api from './index.js';
-const API_KEY = '7239a3e7f1eeb39cb8cddd49f6e0e055'
+const API_KEY = ''
 
 
 export default {
